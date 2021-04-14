@@ -14,7 +14,8 @@ export default function ActivityDashboard(props) {
     openForm,
     closeForm,
     createOrEdit,
-    deleteActivity
+    deleteActivity,
+    submitting
   } = props;
   return (
     <Grid>
@@ -23,6 +24,7 @@ export default function ActivityDashboard(props) {
           activities={activities}
           selectActivity={selectActivity}
           deleteActivity={deleteActivity}
+          submitting={submitting}
         />
       </Grid.Column>
       <Grid.Column width="6">
@@ -35,7 +37,7 @@ export default function ActivityDashboard(props) {
           />
         )}
         {editMode && 
-        <ActivityForm closeForm={closeForm} activity={selectedActivity} createOrEdit={createOrEdit} /> }
+        <ActivityForm submitting={submitting} closeForm={closeForm} activity={selectedActivity} createOrEdit={createOrEdit} /> }
       </Grid.Column>
     </Grid>
   );
